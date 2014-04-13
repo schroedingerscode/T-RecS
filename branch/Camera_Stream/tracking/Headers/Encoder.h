@@ -5,7 +5,7 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
-#include "Headers\Common.h"
+#include "Common.h"
 
 class Encoder{
 public:
@@ -19,6 +19,11 @@ public:
 
   Point2f average_of_sample(); /* Where we filter and stuff */
 
+  string x_speed();
+  string x_direction();
+  string y_speed();
+  string y_direction();
+
   Point2f operator[](int idx) 
   {
 	  return backlog[idx];
@@ -28,9 +33,7 @@ public:
   unsigned int index, samples_size;
   double hippo_news, angle;
   Point2f * backlog;
-  
-
-private:
+  Point2f AoS;
 
 	void polar_coordinate()
 	{
@@ -51,5 +54,16 @@ private:
 					<< "Y : " << position.y << "\n"
 					<< std::endl;
 	}
+
+private:
+
+    int * x_regions;
+	int * x_freqs;
+	int * x_dirs;
+	
+    int * y_regions;
+	int * y_freqs;
+	int * y_dirs;
+	
 };
 #endif

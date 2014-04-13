@@ -2,7 +2,7 @@
 									T-RecS Tracking Code 
 
 **************************************************************************************************/
-#include "Headers\Tracker.h"
+#include "Headers/Tracker.h"
 
 /************************************************************************************************** 
     
@@ -197,12 +197,12 @@ void Tracker::track()
   
   for( i = 0; cur_pts.size()-i > 0 ; i++ )
   {
-    if( pts_status[i] < 0 )
+    if( pts_status[i] <= 0 )
     {
       /* Alternatively go to search... test this later */
       tracking_status = TRACK_RESET;
     }
-	encoder.new_point(cur_pts[i]);
+    encoder.new_point(cur_pts[i], NO_PRINT);
   }
 
 }

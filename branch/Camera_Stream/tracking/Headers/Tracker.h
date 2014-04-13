@@ -5,14 +5,14 @@
 #ifndef TRACKER_H
 #define TRACKER_H
 
-#include "Headers\Common.h"
-#include "Headers\Encoder.h"
+#include "Common.h"
+#include "Encoder.h"
 
 class Tracker
 {
 public:
   Tracker(Mat , Mat, Point2f);
-  ~Tracker() { delete back_sub; }
+  //~Tracker() { delete back_sub; }
 
   Ptr<BackgroundSubtractorMOG> back_sub;
   Encoder encoder;
